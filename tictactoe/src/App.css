@@ -1,0 +1,105 @@
+body {
+  font: 30px "Century Gothic", Futura, sans-serif;
+  /* margin:20px; */
+  background-color: rgba(30, 160, 200, 0.5);
+}
+
+/* .board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+} */
+.title{
+  font-size: 72px;
+  font-weight: 700;
+  margin-top: 30px;
+  align-self: center;
+  text-align: center;
+}
+.status {
+  margin-top: 10vh;
+  align-self: center;
+  text-align: center;
+}
+.game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45vh;
+}
+.court{
+  margin: 0;
+  align-self: center;
+}
+.game-board{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+.board-row{
+  width: fit-content;
+  margin: 0;
+}
+#X{
+  color: #0030B0;
+}
+#O{
+  color: #B03030;
+}
+.square {
+  background-color: rgba(30, 160, 200, 0.5);
+  border: 2px solid #999;
+  float: left;
+  font-size: 54px;
+  font-weight: bold;
+  line-height: 100px;
+  height: 100px;
+  margin-right: -2px;
+  margin-top: -2px;
+  padding: 0;
+  text-align: center;
+  width: 100px;
+}
+.square:hover{
+  background-color: rgba(60, 200, 250, 0.5);
+}
+.square:focus {
+  outline: none;
+}
+/* .kbd-navigation .square:focus {
+  background: #ddd;
+} */
+.reset{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  height: 36px;
+}
+.reset button{
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  background-color: rgba(60, 100, 125, 1);
+  box-shadow: 2px 2px 1px black;
+  padding-bottom: 2px;
+}
+.reset button:hover{
+  /* box-shadow: none; */
+  color: white;
+}
+.reset button:active{
+  padding-top: 2px;
+  padding-bottom: none;
+  box-shadow: none;
+  color: white;
+}
+
+.author{
+  color: #999;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}

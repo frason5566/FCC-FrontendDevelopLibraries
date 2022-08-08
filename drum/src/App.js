@@ -1,40 +1,36 @@
-// global React, ReactDOM 
-/* eslint-disable react/prop-types, react/no-multi-comp */
-
-// eslint-disable-next-line no-unused-vars
-const projectName = 'drum-machine';
-// coded by @no-stack-dub-sack (github) / @no_stack_sub_sack (codepen)
+import React from 'react';
+import './App.css';
 
 const bankOne = [
   {
     keyCode: 81,
     keyTrigger: 'Q',
-    id: 'Heater-1',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
+    id: 'Punchy-Kick',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3'
   },
   {
     keyCode: 87,
     keyTrigger: 'W',
-    id: 'Heater-2',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
+    id: 'Snare',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
   },
   {
     keyCode: 69,
     keyTrigger: 'E',
-    id: 'Heater-3',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'
+    id: 'Clap',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'
   },
   {
     keyCode: 65,
     keyTrigger: 'A',
-    id: 'Heater-4',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
+    id: 'Kick',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
   },
   {
     keyCode: 83,
     keyTrigger: 'S',
-    id: 'Clap',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'
+    id: 'Closed-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3'
   },
   {
     keyCode: 68,
@@ -45,20 +41,20 @@ const bankOne = [
   {
     keyCode: 90,
     keyTrigger: 'Z',
-    id: "Kick-n'-Hat",
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'
+    id: 'Side-Stick',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3'
   },
   {
     keyCode: 88,
     keyTrigger: 'X',
-    id: 'Kick',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
+    id: 'Closed-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
   },
   {
     keyCode: 67,
     keyTrigger: 'C',
-    id: 'Closed-HH',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
+    id: 'Open-HH',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3'
   }
 ];
 
@@ -90,32 +86,32 @@ const bankTwo = [
   {
     keyCode: 83,
     keyTrigger: 'S',
-    id: 'Open-HH',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Dry_Ohh.mp3'
+    id: "Kick-n'-Hat",
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'
   },
   {
     keyCode: 68,
     keyTrigger: 'D',
-    id: 'Closed-HH',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Bld_H1.mp3'
+    id: 'Heater-1',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
   },
   {
     keyCode: 90,
     keyTrigger: 'Z',
-    id: 'Punchy-Kick',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3'
+    id: 'Heater-2',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
   },
   {
     keyCode: 88,
     keyTrigger: 'X',
-    id: 'Side-Stick',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/side_stick_1.mp3'
+    id: 'Heater-3',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'
   },
   {
     keyCode: 67,
     keyTrigger: 'C',
-    id: 'Snare',
-    url: 'https://s3.amazonaws.com/freecodecamp/drums/Brk_Snr.mp3'
+    id: 'Heater-4',
+    url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
   }
 ];
 
@@ -129,7 +125,7 @@ const activeStyle = {
 const inactiveStyle = {
   backgroundColor: 'grey',
   marginTop: 10,
-  boxShadow: '3px 3px 5px black'
+  boxShadow: '3px 3px 10px black'
 };
 
 class DrumPad extends React.Component {
@@ -207,9 +203,9 @@ class DrumPad extends React.Component {
 }
 
 class PadBank extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     let padBank;
     if (this.props.power) {
@@ -335,8 +331,8 @@ class App extends React.Component {
         />
 
         <div className='logo'>
-          <div className='inner-logo '>{'FCC' + String.fromCharCode(160)}</div>
-          <i className='inner-logo fa fa-free-code-camp' />
+          <div className='inner-logo '>{'' + String.fromCharCode(160)}</div>
+          <i className='inner-logo fa fa-github' />
         </div>
 
         <div className='controls-container'>
@@ -369,4 +365,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export default App;
