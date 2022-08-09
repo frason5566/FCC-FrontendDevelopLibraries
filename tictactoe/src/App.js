@@ -101,7 +101,7 @@ class App extends React.Component {
           </button>
         </div>
         <div className='author'>
-          By Frason
+          <span>By    </span>   <a href='https://frason5566.github.io/Portfolio/index.html'> Frason</a>
         </div>
       </div>
     );

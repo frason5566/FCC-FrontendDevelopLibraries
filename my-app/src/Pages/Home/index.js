@@ -7,19 +7,19 @@ import List from "./Components/List";
 // import Item from './Pages/Home/Components'
 import "./index.css";
 
-async function fetchData(setData){
+async function fetchData(setData) {
     const res = await fetch(API_GET_DATA)
     const { data } = await res.json()
     setData(data)
 }
 
-async function fetchSetData(data){
-    await fetch(API_GET_DATA,{
+async function fetchSetData(data) {
+    await fetch(API_GET_DATA, {
         method: "PUT",
         headers: {
-            "Content-type":'application/json'
+            "Content-type": 'application/json'
         },
-        body:JSON.stringify({data})
+        body: JSON.stringify({ data })
     })
 }
 
@@ -27,23 +27,26 @@ async function fetchSetData(data){
 const Home = () => {
     const [data, setData] = useState([]);
     const submitData = useRef(false)
+    let mode = true
 
-    useEffect(()=>{
-        if(!submitData.current){
+    useEffect(() => {
+        if (!submitData.current) {
             return
         }
         fetchSetData(data)
             .then(data => submitData.current = false)
     }, [data])
-    
-    useEffect(()=>{
-        fetchData(setData)
-    },[])
 
+    useEffect(() => {
+        fetchData(setData)
+    }, [])
+    
+    
     return (
-        <div className="app">
-        <Edit add={setData} status={submitData}/>
-        <List listData={data} del={setData} status={submitData}/>
+        <div className="app" id={mode}>
+            <Edit add={setData} status={submitData} />
+            <List listData={data} del={setData} status={submitData} />
+
         </div>
     );
 };

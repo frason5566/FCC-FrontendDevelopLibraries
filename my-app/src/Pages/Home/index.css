@@ -64,7 +64,10 @@ h2 {
 p {
   font-size: 2.8rem;
 }
-
+#dark{
+  background-color: var(--back);
+  color:var(--text-4)
+}
 /* Body */
 body {
   background-color: var(--back);
@@ -89,8 +92,9 @@ img {
 /* sections */
 .app {
   border: 2px solid black;
-  margin: 15px 5% auto 5%;
+  margin: 15px 5% 12vh 5%;
   padding: 20px;
+  /* z-index: 2; */
 }
 input {
   width: 100%;
@@ -128,9 +132,52 @@ input {
   padding: 5px;
 }
 /* footer */
-footer {
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* z-index: 1; */
   height: 10vh;
-  background-color: var(--theme-4);
+  max-height: 60px;
+  background-color: var(--theme-1);
+  display: flex;
+  font-size: 2.0rem;
+  justify-content: center;
 }
-@media (max-width: 500px) {
+.footer .spacer{
+  width: 60vw;
+}
+.footer .author{
+  display: flex;
+  justify-content: center;  
+  color: var(--text-3);
+  align-self: center;
+}
+.footer .author a {
+  justify-content: center;
+  align-self: center;
+  text-decoration: none;
+  color: var(--text-3);
+  font-weight: 400;
+  margin-left: 1rem;
+}
+.footer button{
+  font-size: 2.0rem;
+  padding: 5px;
+  align-self: center;
+  height: fit-content;
+  background-color: var(--text-3);
+  border-radius: 5px;
+  color: #999;
+  box-shadow: 2px 2px black;
+}
+.footer button:hover{
+  color: #FFF;
+}
+.footer button:active{
+  color: #FFF;
+  box-shadow: none;
+  margin-top: 2px;
+  padding-bottom: 3px;
 }
