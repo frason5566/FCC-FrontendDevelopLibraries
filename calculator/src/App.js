@@ -29,8 +29,18 @@ class Calculator extends React.Component {
 		this.initialize = this.initialize.bind(this);
 		this.handleDecimal = this.handleDecimal.bind(this);
 		this.handleNumbers = this.handleNumbers.bind(this);
+		this.handleKeyPress = this.handleKeyPress.bind(this)
 	}
-
+	shouldComponentUpdate(nextProps, nextState){
+		return true
+	}
+	componentDidMount() {
+		document.addEventListener("keydown", this.handleKeyPress)
+	}
+	componentShouldUnmount() {
+		document.removeEventListener("keydown", this.handleKeyPress)
+	}
+	
 	maxDigitWarning() {
 		this.setState({
 			currentVal: "Digit Limit Met",
@@ -116,8 +126,8 @@ class Calculator extends React.Component {
 								? value
 								: formula
 							: /([^.0-9]0|^0)$/.test(formula)
-							? formula.slice(0, -1) + value
-							: formula + value
+								? formula.slice(0, -1) + value
+								: formula + value
 				});
 			}
 		}
@@ -153,7 +163,66 @@ class Calculator extends React.Component {
 			}
 		}
 	}
-
+	handleKeyPress(event) {
+		switch (event.keyCode) {
+			case 108:
+				this.handleEvaluate();
+				break;
+			case 13:
+				this.handleEvaluate();
+				break;
+			case 46:
+				this.initialize();
+				break;
+			case 96:
+				this.handleNumbers({target:{value:0}});
+				break;
+			case 97:
+				this.handleNumbers({target:{value:1}});
+				break;
+			case 98:
+				this.handleNumbers({target:{value:2}});
+				break;
+			case 99:
+				this.handleNumbers({target:{value:3}});
+				break;
+			case 100:
+				this.handleNumbers({target:{value:4}});
+				break;
+			case 101:
+				this.handleNumbers({target:{value:5}});
+				break;
+			case 102:
+				this.handleNumbers({target:{value:6}});
+				break;
+			case 103:
+				this.handleNumbers({target:{value:7}});
+				break;
+			case 104:
+				this.handleNumbers({target:{value:8}});
+				break;
+			case 105:
+				this.handleNumbers({target:{value:9}});
+				break;
+			case 106:
+				this.handleOperators({target:{value:"*"}});
+				break;
+			case 107:
+				this.handleOperators({target:{value:"+"}});
+				break;
+			case 109:
+				this.handleOperators({target:{value:"-"}});
+				break;
+			case 110:
+				this.handleDecimal();
+				break;
+			case 111:
+				this.handleOperators({target:{value:"/"}});
+				break;
+			default:
+				break;
+		}
+	}
 	initialize() {
 		this.setState({
 			currentVal: "0",
@@ -229,8 +298,8 @@ class Buttons extends React.Component {
 				</button>
 				<button id="nine" onClick={this.props.numbers} value="9">
 					9
-				</button>        
-        <button id="add" onClick={this.props.operators} style={operatorStyle} value="+">
+				</button>
+				<button id="add" onClick={this.props.operators} style={operatorStyle} value="+">
 					+
 				</button>
 				<button id="four" onClick={this.props.numbers} value="4">
